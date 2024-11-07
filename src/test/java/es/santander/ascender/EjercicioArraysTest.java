@@ -1,5 +1,6 @@
 package es.santander.ascender;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,26 @@ public class EjercicioArraysTest {
         for (int i = 0; i < resultado.length; i++) {
             assertEquals(i, resultado[i], "El valor en el índice " + i + " no es correcto.");
         }
+    }
+
+    @Test
+    public void testInvertirArray() {
+
+        int [] arrayInicial = new int[] {10, -5, 7, 20, -8, 1, 4};
+        int [] arrayCambiado = new int[] {4, 1, -8, 20, 7, -5, 10};
+
+        // Creamos una instancia
+        EjercicioArrays ejercicio1 = new EjercicioArrays();
+
+        int[] resultado = ejercicio1.invertirArray(arrayInicial);
+
+        // Verificamos que el array tiene el tamaño correcto
+        assertEquals(ejercicio1.invertirArray(arrayInicial).length, resultado.length, "El tamaño del array no es correcto.");
+
+        // Comparamos ambos arrays
+        
+            assertArrayEquals(arrayCambiado, resultado);
+            
     }
 
 }

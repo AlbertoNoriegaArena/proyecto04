@@ -14,6 +14,21 @@ public class EjercicioArrays {
         
     }
 
+    public int[] invertirArray(int [] arreglo){
+
+        int [] arrayInicial = arreglo;
+
+        int [] arrayCambiado = new int [arrayInicial.length];
+
+
+        int contador = arrayInicial.length-1;
+        for(int i=0; i<arrayInicial.length; i++){
+
+            arrayCambiado[i] = arrayInicial[contador];
+            contador--;
+        }
+        return arrayCambiado;
+    }
 
     
     
