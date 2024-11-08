@@ -73,16 +73,17 @@ public class EjercicioArraysTest {
     }
 
     @Test
-    public void testDevolverValorDelIndiceArray(){
+    public void testDevolverValorDelIndiceArray() throws Exception {
 
-        int [] arreglo = new int [] {1, 3, 5, 9, -4};
-        int indice= 4;
+        EjercicioArrays ejercicio5 = new EjercicioArrays();
 
-        // Verificamos que el array tiene el tamaño correcto
-        assertEquals(5, arreglo.length);
+        float resultado = ejercicio5.devolverValorDelIndiceArray(new float [] {1, 3.3F, 5.6F, 9.4F, -4}, 1);
 
-        // Verificamos el valor
-        assertEquals(arreglo[indice-1], 9);
+        // 3.3F => Hay que poner la F porque tienes un double y quieres un float
+        assertEquals(3.3F, resultado);
+        
+
+
     }
 
 }
