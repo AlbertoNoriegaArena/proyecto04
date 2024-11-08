@@ -51,16 +51,10 @@ public class EjercicioArrays {
 
     public int calcularMediaArreglo(int[] arreglo) {
 
-        int[] arregloInicial = arreglo;
 
-        int suma = 0;
-        int media = 0;
+        int suma = calcularSumaArreglo(arreglo);
 
-        for (int i = 0; i < arregloInicial.length; i++) {
-            suma = suma + arregloInicial[i];
-        }
-
-        media = suma / arregloInicial.length;
+        int media = suma / arreglo.length;
         return media;
     }
 
