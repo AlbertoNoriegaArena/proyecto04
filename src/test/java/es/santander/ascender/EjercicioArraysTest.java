@@ -31,6 +31,7 @@ public class EjercicioArraysTest {
     public void testInvertirArray() {
 
         int [] arrayInicial = new int[] {10, -5, 7, 20, -8, 1, 4};
+        // int [] arrayInicial = {10, -5, 7, 20, -8, 1, 4}; => sería lo mismo que lo de arriba
         int [] arrayCambiado = new int[] {4, 1, -8, 20, 7, -5, 10};
 
         // Creamos una instancia
