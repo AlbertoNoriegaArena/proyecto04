@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 public class EjercicioArraysTest {
 
+    private static final int TAMANO_REQUERIDO = 100;
+
     @Test
     public void testGenerarArray100() {
 
@@ -17,7 +19,7 @@ public class EjercicioArraysTest {
         int[] resultado = ejercicio1.generarArray100();
 
         // Verificamos que el array tiene el tamaño correcto
-        assertEquals(100, resultado.length, "El tamaño del array no es 100.");
+        assertEquals(TAMANO_REQUERIDO, resultado.length, "El tamaño del array no es 100.");
 
         // Verificamos que los valores en el array son los esperados (del 0 al 99)
         for (int i = 0; i < resultado.length; i++) {
@@ -41,7 +43,7 @@ public class EjercicioArraysTest {
 
         // Comparamos ambos arrays
         
-            assertArrayEquals(arrayCambiado, resultado);
+        assertArrayEquals(arrayCambiado, resultado);
             
     }
 
