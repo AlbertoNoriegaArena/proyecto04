@@ -59,5 +59,10 @@ public class EjercicioArrays {
         return media;
     }
     
+    public int devolverValorDelIndiceArray(int [] arreglo, int indice){
+
+        return arreglo[indice];
+
+    }
     
 }

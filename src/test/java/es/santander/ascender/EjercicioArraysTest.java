@@ -69,4 +69,17 @@ public class EjercicioArraysTest {
         assertEquals(resultado, media);
     }
 
+    @Test
+    public void testDevolverValorDelIndiceArray(){
+
+        int [] arreglo = new int [] {1, 3, 5, 9, -4};
+        int indice= 4;
+
+        // Verificamos que el array tiene el tamaño correcto
+        assertEquals(5, arreglo.length);
+
+        // Verificamos el valor
+        assertEquals(arreglo[indice-1], 9);
+    }
+
 }
