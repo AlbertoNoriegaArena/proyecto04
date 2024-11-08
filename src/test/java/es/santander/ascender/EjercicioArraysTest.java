@@ -45,4 +45,28 @@ public class EjercicioArraysTest {
             
     }
 
+    @Test
+    public void testCalcularSumaArreglo() {
+        int [] arregloInicial = new int [] {1, 5, 3};
+        int suma = 9;
+
+        EjercicioArrays ejercicio3 = new EjercicioArrays();
+
+        int resultado = ejercicio3.calcularSumaArreglo(arregloInicial);
+
+        assertEquals(resultado, suma);
+    }
+
+    @Test
+    public void testCalcularMediaArreglo() {
+        int [] arregloInicial = new int [] {1, 5, 3};
+        int media = 3;
+
+        EjercicioArrays ejercicio4 = new EjercicioArrays();
+
+        int resultado = ejercicio4.calcularMediaArreglo(arregloInicial);
+
+        assertEquals(resultado, media);
+    }
+
 }
