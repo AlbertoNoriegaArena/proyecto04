@@ -2,6 +2,7 @@ package es.santander.ascender;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -81,9 +82,20 @@ public class EjercicioArraysTest {
 
         // 3.3F => Hay que poner la F porque tienes un double y quieres un float
         assertEquals(3.3F, resultado);
-        
-
-
     }
+
+    @Test
+    public void testDevolverValorDelIndiceArray_ConIndiceNegativo() throws Exception {
+
+        EjercicioArrays ejercicio5 = new EjercicioArrays();
+
+        // Hacemos que el indice que tiene que buscar sea negativo
+        int indiceNegativo = -5;
+
+        assertThrows(Exception.class, // El primer argumento tiene que ser una clase
+        () -> ejercicio5.devolverValorDelIndiceArray(new float [] {1, 3.3F, 5.6F, 9.4F, -4}, indiceNegativo)  // funcion lambda para que funcione
+        );
+    }
+
 
 }
