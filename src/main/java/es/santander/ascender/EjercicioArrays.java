@@ -36,11 +36,11 @@ public class EjercicioArrays {
         return arrayCambiado;
     }
 
-    public int calcularSumaArreglo(int[] arreglo) {
+    public double calcularSumaArreglo(double[] arreglo) {
 
-        int[] arregloInicial = arreglo;
+        double[] arregloInicial = arreglo;
 
-        int suma = 0;
+        double suma = 0;
 
         for (int i = 0; i < arregloInicial.length; i++) {
             suma = suma + arregloInicial[i];
@@ -49,12 +49,11 @@ public class EjercicioArrays {
         return suma;
     }
 
-    public int calcularMediaArreglo(int[] arreglo) {
+    public double calcularMediaArreglo(double[] arreglo) {
 
+        double suma = calcularSumaArreglo(arreglo);
 
-        int suma = calcularSumaArreglo(arreglo);
-
-        int media = suma / arreglo.length;
+        double media = suma / arreglo.length;
         return media;
     }
 

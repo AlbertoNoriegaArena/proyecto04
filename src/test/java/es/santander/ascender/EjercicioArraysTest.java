@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 public class EjercicioArraysTest {
 
     private static final int TAMANO_REQUERIDO = 100;
+    private static final double DELTA = 0.00000001;
 
     @Test
     public void testGenerarArray100() {
@@ -51,26 +52,26 @@ public class EjercicioArraysTest {
 
     @Test
     public void testCalcularSumaArreglo() {
-        int [] arregloInicial = new int [] {1, 5, 3};
-        int suma = 9;
+        double [] arregloInicial = new double [] {1.6, 5.3, 3.9, 0.0};
+        double suma = 10.8;
 
         EjercicioArrays ejercicio3 = new EjercicioArrays();
 
-        int resultado = ejercicio3.calcularSumaArreglo(arregloInicial);
+        double resultado = ejercicio3.calcularSumaArreglo(arregloInicial);
 
-        assertEquals(resultado, suma);
+        assertEquals(resultado, suma, DELTA); // Le metemos un delta para evitar problema de decimales
     }
 
     @Test
     public void testCalcularMediaArreglo() {
-        int [] arregloInicial = new int [] {1, 5, 3};
-        int media = 3;
+        double [] arregloInicial = new double [] {1.5, 5.2, 3.7};
+        double media = 10.4/3;
 
         EjercicioArrays ejercicio4 = new EjercicioArrays();
 
-        int resultado = ejercicio4.calcularMediaArreglo(arregloInicial);
+        double resultado = ejercicio4.calcularMediaArreglo(arregloInicial);
 
-        assertEquals(resultado, media);
+       assertEquals(media, resultado, DELTA);
     }
 
     @Test
