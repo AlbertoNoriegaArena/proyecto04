@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 
 public class EjercicioArraysTest {
@@ -32,9 +34,10 @@ public class EjercicioArraysTest {
     @Test
     public void testInvertirArray() {
 
-        int [] arrayInicial = new int[] {10, -5, 7, 20, -8, 1, 4};
-        // int [] arrayInicial = {10, -5, 7, 20, -8, 1, 4}; => sería lo mismo que lo de arriba
-        int [] arrayCambiado = new int[] {4, 1, -8, 20, 7, -5, 10};
+        int[] arrayInicial = new int[] { 10, -5, 7, 20, -8, 1, 4 };
+        // int [] arrayInicial = {10, -5, 7, 20, -8, 1, 4}; => sería lo mismo que lo de
+        // arriba
+        int[] arrayCambiado = new int[] { 4, 1, -8, 20, 7, -5, 10 };
 
         // Creamos una instancia
         EjercicioArrays ejercicio1 = new EjercicioArrays();
@@ -42,17 +45,18 @@ public class EjercicioArraysTest {
         int[] resultado = ejercicio1.invertirArray(arrayInicial);
 
         // Verificamos que el array tiene el tamaño correcto
-        assertEquals(ejercicio1.invertirArray(arrayInicial).length, resultado.length, "El tamaño del array no es correcto.");
+        assertEquals(ejercicio1.invertirArray(arrayInicial).length, resultado.length,
+                "El tamaño del array no es correcto.");
 
         // Comparamos ambos arrays
-        
+
         assertArrayEquals(arrayCambiado, resultado);
-            
+
     }
 
     @Test
     public void testCalcularSumaArreglo() {
-        double [] arregloInicial = new double [] {1.6, 5.3, 3.9, 0.0};
+        double[] arregloInicial = new double[] { 1.6, 5.3, 3.9, 0.0 };
         double suma = 10.8;
 
         EjercicioArrays ejercicio3 = new EjercicioArrays();
@@ -64,14 +68,14 @@ public class EjercicioArraysTest {
 
     @Test
     public void testCalcularMediaArreglo() {
-        double [] arregloInicial = new double [] {1.5, 5.2, 3.7};
-        double media = 10.4/3;
+        double[] arregloInicial = new double[] { 1.5, 5.2, 3.7 };
+        double media = 10.4 / 3;
 
         EjercicioArrays ejercicio4 = new EjercicioArrays();
 
         double resultado = ejercicio4.calcularMediaArreglo(arregloInicial);
 
-       assertEquals(media, resultado, DELTA);
+        assertEquals(media, resultado, DELTA);
     }
 
     @Test
@@ -79,7 +83,7 @@ public class EjercicioArraysTest {
 
         EjercicioArrays ejercicio5 = new EjercicioArrays();
 
-        float resultado = ejercicio5.devolverValorDelIndiceArray(new float [] {1, 3.3F, 5.6F, 9.4F, -4}, 1);
+        float resultado = ejercicio5.devolverValorDelIndiceArray(new float[] { 1, 3.3F, 5.6F, 9.4F, -4 }, 1);
 
         // 3.3F => Hay que poner la F porque tienes un double y quieres un float
         assertEquals(3.3F, resultado);
@@ -94,9 +98,31 @@ public class EjercicioArraysTest {
         int indiceNegativo = -5;
 
         assertThrows(Exception.class, // El primer argumento tiene que ser una clase
-        () -> ejercicio5.devolverValorDelIndiceArray(new float [] {1, 3.3F, 5.6F, 9.4F, -4}, indiceNegativo)  // funcion lambda para que funcione
+                () -> ejercicio5.devolverValorDelIndiceArray(new float[] { 1, 3.3F, 5.6F, 9.4F, -4 }, indiceNegativo) // funcion
+                                                                                                                      // lambda
+                                                                                                                      // para
+                                                                                                                      // que
+                                                                                                                      // funcione
         );
     }
 
+    @Test
+    public void testBuscarRepetidosArrayList() {
+
+        EjercicioArrays sut = new EjercicioArrays();
+
+        String[] array1 = { "cabeza", "pie", "pierna", "brazo", "ojos" };
+        String[] array2 = { "ojos", "orejas", "pie", "brazo" };
+
+        String[] resultadoEsperado = { "brazo", "pie", "ojos" };
+        String[] resultado = sut.buscarRepetidosArrayList(array1, array2);
+
+        // Ordenamos alfabéticamente los arrays para compararlos
+        Arrays.sort(resultadoEsperado);
+        Arrays.sort(resultado);
+
+        // Comprobamos que sean iguales
+        assertArrayEquals(resultadoEsperado, resultado);
+    }
 
 }

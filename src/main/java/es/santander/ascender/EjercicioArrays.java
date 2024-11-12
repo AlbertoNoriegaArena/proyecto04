@@ -1,5 +1,8 @@
 package es.santander.ascender;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EjercicioArrays {
 
     /*
@@ -71,6 +74,51 @@ public class EjercicioArrays {
         }
 
         return arreglo[indice];
+
+    }
+
+    public String[] buscarRepetidos(String[] arreglo1, String[] arreglo2) {
+
+        // Compruebo cual de los arrays es más largo
+        int arregloMayor = arreglo1.length;
+        if (arreglo2.length > arreglo1.length) {
+            arregloMayor = arreglo2.length;
+        }
+
+        // Creo un array para guardar las coincidencias
+        String[] resultadosRepetidos = new String[arregloMayor];
+        int contadorGuardarDatos = 0;
+
+        // Buscamos los valores repetidos
+        for (int i = 0; i < arreglo1.length; i++) {
+            for (int j = 0; j < arreglo2.length; j++) {
+                if (arreglo1[i].equals(arreglo2[j])) {
+                    resultadosRepetidos[contadorGuardarDatos] = arreglo2[j];
+                    contadorGuardarDatos++;
+                }
+            }
+        }
+
+        return resultadosRepetidos;
+
+    }
+
+    public String[] buscarRepetidosArrayList(String[] arreglo1, String[] arreglo2) {
+
+        List<String> resultadosRepetidos = new ArrayList<>();
+
+        // Buscamos los valores repetidos
+        for (int i = 0; i < arreglo1.length; i++) {
+            for (int j = 0; j < arreglo2.length; j++) {
+                if (arreglo1[i].equals(arreglo2[j]) && !resultadosRepetidos.contains(arreglo1[i])) {
+                    resultadosRepetidos.add(arreglo1[i]);
+                    break; // Salimos del segundo bucle para evitar duplicados
+                }
+            }
+        }
+
+        // Se transforma la lista en un array de String
+        return resultadosRepetidos.toArray(new String[0]);
 
     }
 
