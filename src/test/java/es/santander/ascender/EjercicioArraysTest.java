@@ -149,4 +149,28 @@ public class EjercicioArraysTest {
         assertArrayEquals(resultadoEsperado, resultado);
     }
 
+    @Test
+    public void testEncontrarSegundoValorMasPequeno() throws Exception {
+
+        EjercicioArrays sut = new EjercicioArrays();
+
+        int[] arreglo = { 1, 3, 8, -5, 120, -70, 0 };
+
+        int valorEsperado = -5;
+
+        assertEquals(sut.encontrarSegundoValorMasPequeno(arreglo), valorEsperado);
+    }
+
+    @Test
+    public void testEncontrarSegundoValorMasPequenoSencillo() throws Exception {
+
+        EjercicioArrays sut = new EjercicioArrays();
+
+        int[] arreglo = { 1, 3, 8, -5, 120, -170, -120 };
+
+        int valorEsperado = -120;
+
+        assertEquals(sut.encontrarSegundoValorMasPequenoSencillo(arreglo), valorEsperado);
+    }
+
 }

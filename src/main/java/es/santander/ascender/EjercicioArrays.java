@@ -138,4 +138,48 @@ public class EjercicioArrays {
 
     }
 
+    public int encontrarSegundoValorMasPequeno(int arreglo[]) throws Exception {
+
+        // necesitamos como minimo un array con dos registros
+        if (arreglo == null || arreglo.length < 2) {
+            throw new Exception("Por lo menos necesito dos valores en el array");
+        }
+
+        // Fijamos dos variables con el valor maximo que puedo tener un Int
+        int primerValorMasBajo = Integer.MAX_VALUE;
+        int segundoValorMasBajo = Integer.MAX_VALUE;
+
+        // Si array[0] es menor que el MAX_VALUE se lo asignamos a la variable
+        if (arreglo[0] < primerValorMasBajo) {
+            primerValorMasBajo = arreglo[0];
+        }
+
+        // Iteramos
+        for (int i = 1; i < arreglo.length; i++) {
+            // menor que el segundo pero mayor que el primero => solo cambiamos el segundo valor
+            if (arreglo[i] <= segundoValorMasBajo && arreglo[i] >= primerValorMasBajo) {
+                segundoValorMasBajo = arreglo[i];
+            } else {
+                // menor que el segundo y menor que el primero => cambiamos el valor de las dos variables
+                if (arreglo[i] <= segundoValorMasBajo && arreglo[i] <= primerValorMasBajo) {
+                    segundoValorMasBajo = primerValorMasBajo;
+                    primerValorMasBajo = arreglo[i];
+                }
+            }
+        }
+        return segundoValorMasBajo;
+    }
+
+
+    public int encontrarSegundoValorMasPequenoSencillo(int arreglo[]) throws Exception {
+    
+        // necesitamos como minimo un array con dos registros
+        if (arreglo == null || arreglo.length < 2) {
+            throw new Exception("Por lo menos necesito dos valores en el array");
+        }
+
+        Arrays.sort(arreglo);
+
+        return arreglo[1];
+    }
 }
