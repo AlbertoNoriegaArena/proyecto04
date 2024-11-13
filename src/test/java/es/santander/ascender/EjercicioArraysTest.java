@@ -102,17 +102,32 @@ public class EjercicioArraysTest {
     }
 
     @Test
-    public void testBuscarRepetidos() {
+    public void testBuscarRepetidos() throws Exception {
 
         EjercicioArrays cut = new EjercicioArrays();
 
         String[] primeraLista = { "Hola", "Adios", "Mitad" };
-        String[] segundaLista = { "Adios", "Otra", "Hola", "Adios" };
+        String[] segundaLista = { "Adios", "Otro", "Hola" };
 
         String[] duplicados = cut.buscarRepetidos(primeraLista, segundaLista);
 
         assertArrayEquals(new String[] { "Adios", "Hola" }, duplicados);
+    }
 
+    @Test
+    public void testBuscarRepetidos_ArraysNulos() throws Exception {
+
+        EjercicioArrays cut = new EjercicioArrays();
+
+        String[] primeraLista = { "Hola", "Adios", "Mitad" };
+        String[] segundaLista = null;
+
+        String[] duplicados = cut.buscarRepetidos(primeraLista, segundaLista);
+
+        assertThrows(Exception.class,
+                () -> cut.buscarRepetidos(primeraLista, null));
+        assertThrows(Exception.class,
+                () -> cut.buscarRepetidos(segundaLista, null));
     }
 
     @Test

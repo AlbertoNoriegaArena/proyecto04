@@ -77,8 +77,13 @@ public class EjercicioArrays {
         return arreglo[indice];
 
     }
+    
+    public String[] buscarRepetidos(String[] arreglo1, String[] arreglo2) throws Exception {
 
-    public String[] buscarRepetidos(String[] arreglo1, String[] arreglo2) {
+        // Codigo para evitar error si los arrays son nulos
+        if (arreglo1 == null || arreglo2 == null) {
+            throw new Exception("Las cadenas no pueden ser nulos");
+        }
 
         int contadorGuardarDatos = 0;
 
