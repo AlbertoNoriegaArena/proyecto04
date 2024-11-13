@@ -98,12 +98,21 @@ public class EjercicioArraysTest {
         int indiceNegativo = -5;
 
         assertThrows(Exception.class, // El primer argumento tiene que ser una clase
-                () -> ejercicio5.devolverValorDelIndiceArray(new float[] { 1, 3.3F, 5.6F, 9.4F, -4 }, indiceNegativo) // funcion
-                                                                                                                      // lambda
-                                                                                                                      // para
-                                                                                                                      // que
-                                                                                                                      // funcione
-        );
+                () -> ejercicio5.devolverValorDelIndiceArray(new float[] { 1, 3.3F, 5.6F, 9.4F, -4 }, indiceNegativo)); // funcion lambda para que funcione                                                                                         
+    }
+
+    @Test
+    public void testBuscarRepetidos() {
+
+        EjercicioArrays cut = new EjercicioArrays();
+
+        String[] primeraLista = { "Hola", "Adios", "Mitad" };
+        String[] segundaLista = { "Adios", "Otra", "Hola", "Adios" };
+
+        String[] duplicados = cut.buscarRepetidos(primeraLista, segundaLista);
+
+        assertArrayEquals(new String[] { "Adios", "Hola" }, duplicados);
+
     }
 
     @Test
