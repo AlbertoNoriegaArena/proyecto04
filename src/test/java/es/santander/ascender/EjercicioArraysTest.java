@@ -3,6 +3,7 @@ package es.santander.ascender;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 
@@ -171,6 +172,17 @@ public class EjercicioArraysTest {
         int valorEsperado = -120;
 
         assertEquals(sut.encontrarSegundoValorMasPequenoSencillo(arreglo), valorEsperado);
+    }
+
+    @Test
+    public void testArreglosIguales(){
+
+        EjercicioArrays sut = new EjercicioArrays();
+
+        double [] arreglo2 = { 1.0, 3.4, 8.7, -5.9, 120.1, -170.3, -120.2 };
+        double [] arreglo1 = { 1.0, 3.4, 8.7, -5.9, 120.1, -170.3, -120.2 };
+
+        assertTrue(sut.arreglosIguales(arreglo1, arreglo2));
     }
 
 }

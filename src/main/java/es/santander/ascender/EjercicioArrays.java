@@ -182,4 +182,22 @@ public class EjercicioArrays {
 
         return arreglo[1];
     }
+
+    public boolean arreglosIguales(double[] arreglo1, double[] arreglo2) {
+
+        boolean iguales = true;
+
+        if (arreglo1 == null || arreglo2 == null || arreglo1.length != arreglo2.length) {
+            iguales = false;
+        } else {
+            for (int i = 0; i < arreglo2.length; i++) {
+                if (arreglo1[i] != arreglo2[i]) {
+                    iguales = false;
+                    break;
+                }
+            }
+        }
+
+        return iguales;
+    }
 }
