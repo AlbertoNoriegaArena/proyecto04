@@ -80,39 +80,45 @@ public class EjercicioArrays {
     
     public String[] buscarRepetidos(String[] arreglo1, String[] arreglo2) throws Exception {
 
-        // Codigo para evitar error si los arrays son nulos
+        // Verificar si los arreglos son nulos
         if (arreglo1 == null || arreglo2 == null) {
-            throw new Exception("Las cadenas no pueden ser nulos");
+            throw new Exception("Las cadenas no pueden ser nulas");
         }
 
-        int contadorGuardarDatos = 0;
+        // Crear un array temporal para almacenar coincidencias únicas
+        String[] temporalesRepetidos = new String[Math.min(arreglo1.length, arreglo2.length)];
+        int posicionArrayResultados = 0;
 
-        // Buscamos número de coincidencias
+        // Buscar coincidencias y agregar sin duplicados
         for (int i = 0; i < arreglo1.length; i++) {
             for (int j = 0; j < arreglo2.length; j++) {
                 if (arreglo1[i].equals(arreglo2[j])) {
-                    contadorGuardarDatos++;
-                    break;
+
+                    boolean yaExiste = false;
+
+                    // Verificar si el elemento ya está en temporalesRepetidos
+                    for (int k = 0; k < posicionArrayResultados; k++) {
+                        if (temporalesRepetidos[k].equals(arreglo1[i])) {
+                            yaExiste = true;
+                            break;
+                        }
+                    }
+
+                    // Si no existe, agregarlo al arreglo temporal
+                    if (!yaExiste) {
+                        temporalesRepetidos[posicionArrayResultados] = arreglo1[i];
+                        posicionArrayResultados++;
+                    }
+                    break; // Salir del bucle interno para evitar duplicados
                 }
             }
         }
 
-        // Creo un array para guardar las coincidencias
-        String[] resultadosRepetidos = new String[contadorGuardarDatos];
-        int contador = 0;
+        // Crear el arreglo final con el tamaño exacto de coincidencias únicas
+        String[] resultadosRepetidos = new String[posicionArrayResultados];
+        System.arraycopy(temporalesRepetidos, 0, resultadosRepetidos, 0, posicionArrayResultados);
 
-        // Vuelvo a iterar para guardar las coincidencias en un array
-        for (int i = 0; i < arreglo1.length; i++) {
-            for (int j = 0; j < arreglo2.length; j++) {
-                if (arreglo1[i].equals(arreglo2[j])) {
-                    resultadosRepetidos[contador] = arreglo2[j];
-                    contador++;
-                    break;
-                }
-            }
-        }
-
-        // Ordenamos el array alfabeticamente
+        // Ordenar el arreglo alfabéticamente
         Arrays.sort(resultadosRepetidos);
 
         return resultadosRepetidos;
