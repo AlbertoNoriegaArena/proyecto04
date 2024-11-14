@@ -162,14 +162,14 @@ public class EjercicioArrays {
 
         // Iteramos
         for (int i = 1; i < arreglo.length; i++) {
-            // menor que el segundo pero mayor que el primero => solo cambiamos el segundo valor
-            if (arreglo[i] <= segundoValorMasBajo && arreglo[i] >= primerValorMasBajo) {
-                segundoValorMasBajo = arreglo[i];
+            // menor que el segundo y menor que el primero => cambiamos el valor de las dos variables
+            if (arreglo[i] < primerValorMasBajo) {
+                segundoValorMasBajo = primerValorMasBajo;
+                primerValorMasBajo = arreglo[i];           
             } else {
-                // menor que el segundo y menor que el primero => cambiamos el valor de las dos variables
-                if (arreglo[i] <= segundoValorMasBajo && arreglo[i] <= primerValorMasBajo) {
-                    segundoValorMasBajo = primerValorMasBajo;
-                    primerValorMasBajo = arreglo[i];
+                // menor que el segundo pero mayor que el primero => solo cambiamos el segundo valor
+                if (arreglo[i] != primerValorMasBajo && arreglo[i] < segundoValorMasBajo) {
+                    segundoValorMasBajo = arreglo[i];
                 }
             }
         }

@@ -157,7 +157,7 @@ public class EjercicioArraysTest {
 
         EjercicioArrays sut = new EjercicioArrays();
 
-        int[] arreglo = { 1, 3, 8, -5, 120, -70, 0 };
+        int[] arreglo = { -70, 3, 8, -5, 120, -70, 0 };
 
         int valorEsperado = -5;
 
